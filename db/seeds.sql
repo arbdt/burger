@@ -1,5 +1,4 @@
-INSERT INTO burgers VALUES (
+INSERT INTO burgers (burger_name, devoured) VALUES
     ("New Yolk", FALSE),
     ("Juicy City", FALSE),
-    ("Onion Station", FALSE)
-);
+    ("Onion Station", FALSE);
