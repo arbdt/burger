@@ -8,6 +8,12 @@ let connection = mysql.createConnection({
     user: "root",
     password: ""
 });
-
+// connect to database
+connection.connect(function (error){
+    if (error){
+        console.error(error);
+    }
+    console.log("Connected to database.")
+})
 // export as module
 module.exports = connection;
