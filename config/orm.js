@@ -17,7 +17,27 @@ selectAll: function(tableName, callback){
     });
 },
 // insert one
-insertOne: function(){
+insertOne: function(tableName, columnNames, values, callback){
+    // begin query string
+    let queryString = `INSERT INTO ${tableName} (`;
+    // set column parameter into query string
+    let columnString = columnNames.toString();
+    queryString += `${columnString}) VALUES (`;
+    // build value part of query string
+    let valueString = [];
+    for (let v=0; v < values.length; v++){
+        valueString.push("?");
+    }
+    queryString += `${valueString.toString()});`;
+    // run query
+    connection.query(queryString, values, function(error, result){
+        if (error){
+            throw error;
+        } else {
+            // send result to callback function for later use
+            callback(result);
+        }
+    });
 },
 // update one
 updateOne: function(){
