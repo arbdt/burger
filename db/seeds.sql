@@ -1,5 +1,5 @@
 INSERT INTO burgers VALUES (
-    ("With The Lot", FALSE),
-    ("Cheeseburger", FALSE),
-    ("Chicken Yumbo", FALSE)
+    ("New Yolk", FALSE),
+    ("Juicy City", FALSE),
+    ("Onion Station", FALSE)
 );
