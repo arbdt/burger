@@ -8,12 +8,15 @@ let burger = {
 getAllBurgers(callback){
     // refer to ORM "selectAll" function
     orm.selectAll("burgers", function(output){
+        // send output to callback
         callback(output);
     });
 },
 // insert burger
 createBurger(columnArray, valueArray, callback){
+    // call ORM insert function
     orm.insertOne("burgers", columnArray, valueArray, function(output){
+        // send output to callback
         callback(output);
     });
 },
