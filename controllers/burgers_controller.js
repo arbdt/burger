@@ -17,7 +17,15 @@ router.get("/", function(request, response){
 
 // POST new burger
 router.post("/api/burgers", function(request, response){
-
+    // get POST components
+    let newBurgerPOST = request.body;
+    let newBurgerCols = ["burger_name", "devoured"];
+    let newBurgerVals = [newBurgerPOST.name, newBurgerPOST.devoured];
+    // call burger create with data from POST request
+    burger.createBurger(newBurgerCols, newBurgerVals, function(data){
+        // return confirmation of entry
+        response.json(data);
+    });
 });
 
 // PUT burger status
