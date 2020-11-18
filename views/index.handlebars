@@ -1,0 +1,32 @@
+<!-- page header -->
+<header>
+    <h1 class="siteTitle">Eat Da Burger</h1>
+</header>
+<!-- page main content -->
+<main>
+    <section id="readyBurgerSection">
+        <h3>Available Burgers</h3>
+        <ul class="burgerList" id="readyBurgerList">
+            {{#each burgers}}
+                {{#unless this.devoured}}
+                    <li>{{this.burger_name}}</li>
+                {{/unless}}
+            {{/each}}
+        </ul>
+    </section>
+    <section id="eatenBurgerSection">
+        <h3>Burgers Devoured</h3>
+        <ul class="burgerList" id="eatenBurgerList">
+            {{#each burgers}}
+                {{#if this.devoured}}
+                <li>{{this.burger_name}} &emsp; <button></button></li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </section>
+    <form id="addBurgerForm" action="/api/burgers" method="POST">
+        <label for="burger_name">Enter a burger name:</label><br>
+        <input type="text" id="burger_name" name ="burger_name" maxlength="50" size="55"><br>
+        <button type="submit">Order Burger</button>
+    </form>
+</main>
