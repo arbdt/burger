@@ -18,19 +18,20 @@ router.get("/", function(request, response){
 // POST new burger
 router.post("/api/burgers", function(request, response){
     // get POST components
-    let newBurgerPOST = request.body;
     let newBurgerCols = ["burger_name", "devoured"];
-    let newBurgerVals = [newBurgerPOST.name, newBurgerPOST.devoured];
+    let newBurgerVals = [request.body.burger_name, false];
+    console.log(`${newBurgerCols[0]}: ${newBurgerVals[0]}, ${newBurgerCols[1]}: ${newBurgerVals[1]}`);
     // call burger create with data from POST request
     burger.createBurger(newBurgerCols, newBurgerVals, function(data){
-        // return confirmation of entry
-        response.json(data);
+        // refresh page to display new entry in GET
+        response.redirect("/");
     });
 });
 
 // PUT burger status
 router.put("/api/burgers/:id"), function(request, response){
-
+    let condition = `id=${request.params.id}`;
+    burger.updateBurger();
 };
 
 // export router
