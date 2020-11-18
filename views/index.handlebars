@@ -4,7 +4,7 @@
 </header>
 <!-- page main content -->
 <main>
-    <section id="readyBurgerSection">
+    <section id="readyBurgerSection"><!-- section for list of uneaten burgers -->
         <h3>Available Burgers</h3>
         <ul class="burgerList" id="readyBurgerList">
             {{#each burgers}}
@@ -14,7 +14,7 @@
             {{/each}}
         </ul>
     </section>
-    <section id="eatenBurgerSection">
+    <section id="eatenBurgerSection"> <!-- section for burgers once devoured is set to TRUE -->
         <h3>Burgers Devoured</h3>
         <ul class="burgerList" id="eatenBurgerList">
             {{#each burgers}}
@@ -24,6 +24,7 @@
             {{/each}}
         </ul>
     </section>
+    <!-- form for adding a new burger --> 
     <form id="addBurgerForm" action="/api/burgers" method="POST">
         <label for="burger_name">Enter a burger name:</label><br>
         <input type="text" id="burger_name" name ="burger_name" maxlength="50" size="55"><br>
