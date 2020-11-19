@@ -29,9 +29,23 @@ router.post("/api/burgers", function(request, response){
 });
 
 // PUT burger status
-router.put("/api/burgers/:id"), function(request, response){
+router.put('/api/burgers/:id'), function(request, response){
+    // get WHERE _ = _ from request
     let condition = `id=${request.params.id}`;
-    burger.updateBurger();
+    console.log("condition: " + condition);
+    // values to be updated
+    let column = ["devoured"];
+    let value = request.body.devoured;
+    console.log("devoured = " + request.body);
+    // call burger updateBurger with these variables
+    burger.updateBurger(column, value, condition, function(data){
+        if(data.affectedRows == 0){
+            response.status(404).end();
+        }
+        else {
+            response.status(200).end();
+        }
+    });
 };
 
 // export router
