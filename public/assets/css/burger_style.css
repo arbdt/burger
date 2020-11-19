@@ -1,3 +1,37 @@
-* {
+body {
     background-color: #065535;
+    color: goldenrod;
+}
+
+header{
+    text-align: center;
+    border-bottom: 3px solid goldenrod;
+}
+
+.small{
+    font-variant: small-caps;
+    font-weight: 500;
+}
+
+h3 {
+    text-align: center;
+}
+li {
+    margin: 0.25rem;
+    padding: 1rem;
+    display: block;
+    background-color: goldenrod;
+    color: #065535;
+}
+
+.eatBurgerBtn {
+    float: right;
+    background-color: #065535;
+    color: goldenrod;
+}
+
+form {
+    background-color: #002fff;
+    color: white;
+    border: 2px dashed white;
 }
