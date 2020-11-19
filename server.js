@@ -6,13 +6,15 @@ var router = require("./controllers/burgers_controller.js");
 // set up express app instance -----
 const PORT = process.env.PORT || 8080;
 let app = express();
-// set up to use routes from controller
-app.use(router);
+
 // parse requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // static link for css file
 app.use(express.static("public"));
+
+// set up to use routes from controller
+app.use(router);
 
 // link in handlebars view engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
