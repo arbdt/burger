@@ -1,7 +1,7 @@
 // import modules -----
 let express = require("express");
 let exphbs = require("express-handlebars");
-var router = require("./controllers/burgers_controller.js");
+
 
 // set up express app instance -----
 const PORT = process.env.PORT || 8080;
@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // set up to use routes from controller
+let router = require("./controllers/burgers_controller.js");
 app.use(router);
 
 // link in handlebars view engine
