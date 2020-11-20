@@ -12,8 +12,7 @@ $(document).ready(function(){
         console.log(`Burger ID: ${idAffected}; ` + JSON.stringify(setDevoured));
         let putUrl = "/api/burgers/" + idAffected;
         // send to ajax PUT
-        $.ajax({
-            url: putUrl,
+        $.ajax(putUrl,{
             type: "PUT",
             data: setDevoured
         }).then(
@@ -39,7 +38,7 @@ $(document).ready(function(){
             data: setDevoured
         }).then(
             function() {
-            console.log("A burger has been devoured");
+            console.log("A burger has been regurgitated");
             // refresh page to re-GET the burger lists
             location.reload();
         });
