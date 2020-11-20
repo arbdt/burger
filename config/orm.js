@@ -17,20 +17,21 @@ selectAll: function(tableName, callback){
     });
 },
 // insert one
-insertOne: function(tableName, columnNames, values, callback){
+insertOne: function(tableName, columnArray, valueArray, callback){
     // begin query string
     let queryString = `INSERT INTO ${tableName} (`;
     // set column parameter into query string
-    let columnString = columnNames.toString();
+    let columnString = columnArray.toString();
     queryString += `${columnString}) VALUES (`;
     // build value part of query string
     let valueString = [];
-    for (let v=0; v < values.length; v++){
+    for (let v=0; v < valueArray.length; v++){
         valueString.push("?");
     }
     queryString += `${valueString.toString()});`;
+    console.log(queryString);
     // run query
-    connection.query(queryString, values, function(error, result){
+    connection.query(queryString, valueArray, function(error, result){
         if (error){
             throw error;
         } else {
@@ -40,7 +41,23 @@ insertOne: function(tableName, columnNames, values, callback){
     });
 },
 // update one
-updateOne: function(){
+updateOne: function(tableName, column, value, conditions, callback){
+    // begin building query string
+    let queryString = `UPDATE ${tableName} SET `;
+    // add altered values to query
+    queryString += `${column} = ${value}`;
+    // add conditions to query
+    queryString += ` WHERE ${conditions} `;
+    console.log(queryString);
+    // run query
+    connection.query(queryString, function(error, result){
+        if (error) {
+          throw error;
+        }
+        else {
+            callback(result);
+        }
+    })
 }
 };
 
