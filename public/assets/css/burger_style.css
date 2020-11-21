@@ -1,8 +1,10 @@
+/* CUSTOM STYLES*/
 body {
     background-color: #065535;
     color: goldenrod;
 }
 
+/* UPPER AREA */
 header{
     text-align: center;
     border-bottom: 3px solid goldenrod;
@@ -13,10 +15,13 @@ header{
     font-weight: 500;
 }
 
+/* MAIN AREA */
 h3 {
     text-align: center;
 }
-li {
+
+/* READY BURGERS */
+.readyBurgerLI {
     margin: 0.25rem;
     padding: 1rem;
     display: block;
@@ -30,8 +35,24 @@ li {
     color: goldenrod;
 }
 
+/*OLD BURGERS */
+.eatenBurgerLI {
+    margin: 0.25rem;
+    padding: 1rem;
+    display: block;
+    background-color: #e9ecef;
+    color: #065535;
+}
+
+.regurgitateBurgerBtn {
+    float: right;
+    background-color: #065535;
+    color: goldenrod;
+}
+
+/* FORM TO ADD BURGERS */
 form {
-    background-color: #002fff;
-    color: white;
+    background-color: goldenrod;
+    color: #065536;
     border: 2px dashed white;
 }
