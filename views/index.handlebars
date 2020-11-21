@@ -8,38 +8,39 @@
 
 <!-- page main content -->
 <main class="container">
-    <div class="row">
-    <section id="readyBurgerSection" class="col-5"><!-- section for list of uneaten burgers -->
-        <h3>Available Burgers</h3>
-        <ul class="burgerList list-group" id="readyBurgerList">
-            {{#each burgers}}
-                {{#unless this.devoured}}
-                    <li>{{this.burger_name}} &emsp; <button class="eatBurgerBtn btn btn-success" data-id="{{this.id}}" data-devoured="{{this.devoured}}">Eat</button></li>
-                {{/unless}}
-            {{/each}}
-        </ul>
-    </section>
 
-    <div class="col-1" id=><!-- space filler --></div>
-
-    <section id="eatenBurgerSection" class="col-5"> <!-- section for burgers once devoured is set to TRUE -->
-        <h3>Burgers Devoured</h3><br>
-        <ul class="burgerList list-group" id="eatenBurgerList">
-            {{#each burgers}}
-                {{#if this.devoured}}
-                <li class="list-group-item">{{this.burger_name}} &emsp; <button class="regurgitateBurgerBtn btn btn-warning" data-id="{{this.id}}" data-devoured="{{this.devoured}}">Regurgitate</button></li>
-                {{/if}}
-            {{/each}}
-        </ul>
-    </section>
-    </div>
     <div class="row mt-5">
     <!-- form for adding a new burger --> 
     <form id="addBurgerForm" action="/api/burgers" method="POST" class="col-12">
         <h3>Order a Burger</h3>
         <label for="burger_name">Enter a burger name:</label><br>
-        <input type="text" id="burger_name" name ="burger_name" maxlength="50" size="55" class="form-control"><br>
+        <input type="text" id="burger_name" name ="burger_name" maxlength="50" size="55" class="form-control" required><br>
         <button type="submit" class="btn btn-outline-light">Order Burger</button>
     </form>
     </div>
+
+    <div class="row mt-5">
+    <section id="readyBurgerSection" class="col-6"><!-- section for list of uneaten burgers -->
+        <h3>Available Burgers</h3>
+        <ul class="burgerList list-group" id="readyBurgerList">
+            {{#each burgers}}
+                {{#unless this.devoured}}
+                    <li class="readyBurgerLI">{{this.burger_name}} &emsp; <button class="eatBurgerBtn btn btn-success" data-id="{{this.id}}" data-devoured="{{this.devoured}}">Eat</button></li>
+                {{/unless}}
+            {{/each}}
+        </ul>
+    </section>
+
+    <section id="eatenBurgerSection" class="col-6"> <!-- section for burgers once devoured is set to TRUE -->
+        <h3>Burgers Devoured</h3>
+        <ul class="burgerList list-group" id="eatenBurgerList">
+            {{#each burgers}}
+                {{#if this.devoured}}
+                <li class="eatenBurgerLI">{{this.burger_name}} &emsp; <button class="regurgitateBurgerBtn btn btn-warning" data-id="{{this.id}}" data-devoured="{{this.devoured}}">Regurgitate</button></li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </section>
+    </div>
+
 </main>
