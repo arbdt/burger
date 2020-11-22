@@ -10,14 +10,32 @@ header{
     border-bottom: 3px solid goldenrod;
 }
 
+header h1 {
+    letter-spacing: 1rem;
+}
+
 .small{
     font-variant: small-caps;
     font-weight: 500;
+    letter-spacing: normal;
 }
 
 /* MAIN AREA */
 h3 {
     text-align: center;
+}
+
+/* FORM TO ADD BURGERS */
+form {
+    background-color: goldenrod;
+    color: #065536;
+    border: 2px dashed white;
+}
+
+.addBurgerBtn {
+    background-color: #065535;
+    color: #e9ecef;
+    float: right;
 }
 
 /* READY BURGERS */
@@ -32,7 +50,7 @@ h3 {
 .eatBurgerBtn {
     float: right;
     background-color: #065535;
-    color: goldenrod;
+    color: #e9ecef;
 }
 
 /*OLD BURGERS */
@@ -48,11 +66,4 @@ h3 {
     float: right;
     background-color: #065535;
     color: goldenrod;
-}
-
-/* FORM TO ADD BURGERS */
-form {
-    background-color: goldenrod;
-    color: #065536;
-    border: 2px dashed white;
 }
