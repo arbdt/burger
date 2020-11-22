@@ -57,7 +57,7 @@ updateOne: function(tableName, column, value, conditions, callback){
         else {
             callback(result);
         }
-    })
+    });
 }
 };
 
