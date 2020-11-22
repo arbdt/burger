@@ -1,7 +1,20 @@
 // SCRIPT FOR JQUERY CLICK AND AJAX FOR CLIENT SIDE
 $(document).ready(function(){
 
-    // ajax for sending POST for create new burger
+    // ajax for sending POST for create new burger -----
+    $(".addBurgerBtn").on("click", function(event){
+        event.preventDefault();
+        let newBurgerName = {burger_name: $("#burger_name").val().trim()};
+        // send ajax POST
+        $.ajax("/api/burgers",{
+            type: "POST",
+            data: newBurgerName
+        }).then(function(data){
+            console.log(`${data.affectedRows} Burger has been added.`);
+            // refresh the page
+            location.reload();
+        });
+    });
 
     // ajax PUT to set burger to DEVOURED=TRUE; -----
     // button click
