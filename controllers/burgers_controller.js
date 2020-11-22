@@ -24,7 +24,7 @@ router.post("/api/burgers", function(request, response){
     // call burger create with data from POST request
     burger.createBurger(newBurgerCols, newBurgerVals, function(data){
         // refresh page to display new entry in GET
-        response.redirect("/");
+        response.json(data);
     });
 });
 
